@@ -1,0 +1,50 @@
+.header {
+    background: url('../images/header-bg.jpg') no-repeat top center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.navigation {
+    @include pos(fixed, $t: 0, $l: 0, $z: 99);
+    width: 100%;
+    background: rgba(0, 8, 12, .1);
+    
+    overflow: hidden;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+
+    &__item {
+        font: 17px $dosis;
+        text-transform: uppercase;
+        margin: 0 20px;
+        text-align: center;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #606060;
+        position: relative;
+        padding: 25px 0;
+        display: inline-block; 
+        transition: all .3s;
+
+        &::before {
+            @include size(calc(100% + 4px), 2px);
+            @include pos($b: -30px, $l: -2px);
+            content: '';
+            background: #000;
+            transition: all .3s;
+        }
+
+        &:hover {
+            color: #000;
+
+            &::before {
+                bottom: 10px;
+            }
+        }
+    }
+}
