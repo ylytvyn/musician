@@ -1,0 +1,54 @@
+.audio {
+    margin-bottom: 55px;
+    background: #f5f6f6;
+
+    &__info {
+        position: relative;
+
+        &::after {
+            
+            top: 50%;
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        &--right::after {
+            @include triangle(#f5f6f6, 12px, left);
+            left: 0;
+        }
+
+        &--left::after {
+            @include triangle(#f5f6f6, 12px, right);
+            right: 0;
+        }
+    }
+
+    &__block {
+        padding: 30px;
+    }
+
+    &__title {
+        font-size: 23px;
+        line-height: 25px;
+        letter-spacing: .2px;
+        margin-bottom: 30px;
+        color: #000;
+    }
+
+    &__description {
+        line-height: 25px;
+        margin-bottom: 55px;
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    &__video {
+        iframe {
+            @include size(100%);
+        }
+    }
+}

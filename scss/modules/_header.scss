@@ -2,6 +2,12 @@
     background: url('../images/header-bg.jpg') no-repeat top center;
     background-size: cover;
     height: 100vh;
+
+    &__block {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
 }
 
 .navigation {
@@ -46,5 +52,39 @@
                 bottom: 10px;
             }
         }
+    }
+}
+
+.logo {
+    display: inline-block;
+    max-width: 50%;
+    margin-top: 25vh;
+}
+
+.scroll {
+    text-decoration: none;
+    color: #fff;
+    font-size: 35px;
+    margin-top: 25px;
+    position: relative;
+    top: 0;
+    transition: all .3s;
+    animation: scroll-arrow 1.5s ease-in-out infinite;
+
+    &:hover {
+        color: var(--hover);
+    }
+}
+
+
+@keyframes scroll-arrow {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: 20px;
+    }
+    100% {
+        top: 0;
     }
 }

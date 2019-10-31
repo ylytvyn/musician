@@ -5,6 +5,11 @@
 
 // Layout
 @import "layout/_general";
+@import "layout/_title";
+@import "layout/_date";
+@import "layout/_buttons";
+@import "layout/_social";
 
-// Page styles
+// Modules
 @import "modules/_header";
+@import "modules/_compositions";
