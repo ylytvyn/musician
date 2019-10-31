@@ -14,13 +14,24 @@
     @include pos(fixed, $t: 0, $l: 0, $z: 99);
     width: 100%;
     background: rgba(0, 8, 12, .1);
-    
     overflow: hidden;
+
+    @media (max-width: $desktop) {
+        background: none;
+        right: 5%; 
+        top: 25px;
+        left: auto;
+        width: 50px;
+    }
 }
 
 .menu {
     display: flex;
     justify-content: center;
+
+    @media (max-width: $desktop) {
+        display: none;
+    }
 
     &__item {
         font: 17px $dosis;
@@ -51,6 +62,59 @@
             &::before {
                 bottom: 10px;
             }
+        }
+    }
+}
+
+.burger-menu {
+    @mixin line($top: 0) {
+        @include size(100%, 5px);
+        background: #bebebe;
+        border-radius: 3px;
+        position: absolute;
+        top: $top;
+        transition: all .3s;
+    }
+
+    @include size(50px, 40px);
+    display: block;
+    position: relative;
+
+    @media (min-width: $desktop) {
+        display: none;
+    }
+
+    &::before {
+        @include line();
+        content: '';
+        transform-origin: 0 0;
+    }
+
+    &::after {
+        @include line(calc(100% - 5px));
+        content: '';
+        transform-origin: 0 100%;
+    }
+
+    span {
+        @include line(50%);
+        display: block;
+        transform: translateY(-50%);
+    }
+
+    &:hover {
+        span {
+            display: none;
+        }
+
+        &::before {
+            transform: rotate(47deg);
+            left: 3px;
+        }
+
+        &::after {
+            transform: rotate(-47deg);
+            left: 3px;
         }
     }
 }
