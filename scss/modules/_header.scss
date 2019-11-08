@@ -18,10 +18,49 @@
 
     @media (max-width: $desktop) {
         background: none;
-        right: 5%; 
-        top: 25px;
-        left: auto;
-        width: 50px;
+        position: static;
+    }
+
+    &__menu {
+        @include pos(fixed, $t: 15px, $r: 3%, $z: 99);
+        background: rgba(255, 255, 255, .9);
+        padding: 10px;
+        transition: all .3s;
+
+        @media (min-width: $desktop) {
+            display: none;
+        }
+    }
+
+    &__input {
+        display: none;
+
+        &:checked {
+            + .navigation__menu {
+                right: 250px;
+                width: 56px;
+
+                .burger-menu {
+                    span {
+                        display: none;
+                    }
+            
+                    &::before {
+                        transform: rotate(47deg);
+                        left: 3px;
+                    }
+            
+                    &::after {
+                        transform: rotate(-47deg);
+                        left: 3px;
+                    }
+                }
+            }
+
+            ~ .menu {
+                right: 0;
+            }
+        }
     }
 }
 
@@ -30,7 +69,12 @@
     justify-content: center;
 
     @media (max-width: $desktop) {
-        display: none;
+        @include pos(fixed, $z: 1, $t: 0, $r: -250px);
+        @include size(250px, 100%);
+        background: rgba(255, 255, 255, .9);
+        transition: all .3s;
+        display: block;
+        padding-top: 25px;
     }
 
     &__item {
@@ -48,12 +92,22 @@
         display: inline-block; 
         transition: all .3s;
 
+        @media (max-width: $desktop) {
+            display: block;
+            padding: 20px 0;
+            font-size: 18px;
+        }
+
         &::before {
             @include size(calc(100% + 4px), 2px);
             @include pos($b: -30px, $l: -2px);
             content: '';
             background: #000;
             transition: all .3s;
+
+            @media (max-width: $desktop) {
+                display: none;
+            }
         }
 
         &:hover {
@@ -100,22 +154,6 @@
         @include line(50%);
         display: block;
         transform: translateY(-50%);
-    }
-
-    &:hover {
-        span {
-            display: none;
-        }
-
-        &::before {
-            transform: rotate(47deg);
-            left: 3px;
-        }
-
-        &::after {
-            transform: rotate(-47deg);
-            left: 3px;
-        }
     }
 }
 

@@ -19,10 +19,18 @@
         position: relative;
         top: 3px;
 
+        @media (min-width: $mobile-portrait) and (max-width: $mobile) {
+            top: 1px;
+        }
+
         .icon {
             @include size(15px);
             fill: currentColor;
             transition: all .3s;
+
+            @media (min-width: $mobile-portrait) and (max-width: $mobile) {
+                @include size(12px);
+            }
         }
 
         &:hover {
@@ -33,6 +41,8 @@
     }
 
     &__text {
-        
+        @media (min-width: $mobile-portrait) and (max-width: $mobile) {
+            font-size: 13px;
+        }
     }
 }

@@ -1,3 +1,7 @@
+.compositions {
+    padding-top: 1px;
+}
+
 .audio {
     margin-bottom: 55px;
     background: #f5f6f6;
@@ -6,7 +10,6 @@
         position: relative;
 
         &::after {
-            
             top: 50%;
             z-index: 1;
             transform: translateY(-50%);
@@ -20,6 +23,16 @@
         &--left::after {
             @include triangle(#f5f6f6, 12px, right);
             right: 0;
+        }
+
+        @media (max-width: $mobile) {
+            &::after {
+                @include triangle(#f5f6f6, 12px, down);
+                left: 50%;
+                bottom: -24px;
+                top: auto;
+                transform: translateX(-50%);
+            }
         }
     }
 
@@ -44,6 +57,14 @@
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
+
+        @media (max-width: $mobile-portrait) {
+            display: block;
+
+            .button-arrow {
+                margin-bottom: 20px;
+            }
+        }
     }
 
     &__video {

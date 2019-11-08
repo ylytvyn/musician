@@ -8,6 +8,11 @@
     transition: all .3s;
     color: #000;
 
+    @media (max-width: $mobile) {
+        width: 170px;
+        font-weight: 700;
+    }
+
     &__text {
         margin-right: 20px;
     }
