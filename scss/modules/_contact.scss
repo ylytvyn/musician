@@ -1,0 +1,54 @@
+.contact {
+  @include bg("contact-bg-mobile.jpg", "contact-bg.jpg");
+  padding: 1px 0 265px;
+  letter-spacing: 0.2px;
+  line-height: 25px;
+
+  @media (max-width: $mobile) {
+    padding-bottom: 440px;
+  }
+
+  &__address {
+    display: block;
+  }
+
+  &__phone {
+    color: var(--grey);
+    text-decoration: none;
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: space-around;
+
+  &__wrap {
+  }
+
+  &__field {
+    border-bottom: 1px solid #000;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 45px;
+    font: 14px $openSans;
+    resize: vertical;
+    background: transparent;
+    transition: all 0.5s;
+
+    &:focus {
+      border-color: var(--hover);
+    }
+  }
+
+  &__btn {
+    font: bold 20px $openSans;
+    background: transparent;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      color: var(--hover);
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.media {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 30px;
+    border-left: 2px solid #000;
+    margin-top: 25px;
+
+    &__item {
+        margin: 5px 0;
+    }
+
+    &__link {
+        @include size(20px);
+        display: block;
+        position: relative;
+
+        &::before {
+            @include align(true, true, absolute); 
+            content: '';
+            background: url('../images/png-icons.png') no-repeat;
+            transition: all .3s;
+        }
+
+        &--fb::before {
+            @include size(8px, 17px);
+        }
+
+        &--in::before {
+            @include size(19px, 18px);
+            background-position: -11px 0;
+        }
+
+        &--tw::before {
+            @include size(16px, 13px);
+            background-position: -33px 0;
+        }
+
+        &:hover::before {
+            background-position-y: -20px;
+        }
+    }
+}

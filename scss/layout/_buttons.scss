@@ -33,3 +33,54 @@
         }
     }
 }
+
+.button-colored {
+    @include size(200px, 55px);
+    text-align: center;
+    padding: 0 15px;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 55px;
+    text-decoration: none;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+
+    &--var-1 {
+        background-image: url('../images/btn-1.jpg');
+        color: #fff;
+    }
+    &--var-2 {
+        background-image: url('../images/btn-2.jpg');
+    }
+    &--var-3 {
+        background-image: url('../images/btn-3.jpg');
+    }
+
+    &::before {
+        @include pos($l: -50px, $t: 0);
+        @include size(0, 100%);
+        content: '';
+        background: var(--hover);
+        //border-radius: 35px;
+        transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        opacity: .6;
+    }
+
+    &__text {
+        z-index: 1;
+        position: relative;
+        //mix-blend-mode: difference;
+    }
+
+    &:hover {
+        &::before {
+            width: calc(100% + 30px);
+        }
+    }
+}

@@ -1,5 +1,48 @@
 .disco {
-    background: url('../images/disco-bg.jpg') no-repeat bottom center;
+    @include bg('disco-bg-mobile.jpg', 'disco-bg.jpg');
     padding-bottom: 450px;
     padding-top: 1px;
+
+    @media (max-width: $mobile-portrait) {
+        padding-bottom: 250px;
+    }
+}
+
+.single {
+    margin-bottom: 100px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &__info {
+        letter-spacing: .2px;
+    }
+
+    &__name {
+        color: #000;
+        font-size: 23px;
+        margin-bottom: 15px;
+    }
+
+    &__text {
+        line-height: 25px;
+
+        @media (max-width: $mobile) {
+            font-size: 15px;
+            text-align: justify;
+        }
+    }
+
+    .button-colored {
+        margin-top: 25px;
+
+        @media (max-width: $mobile) {
+            margin: 40px auto 0;
+        }
+    }
+
+    .date__title {
+        margin-right: 0;
+    }
 }
